@@ -4,8 +4,6 @@ title: "VC dimension"
 date: 2019-03-17
 ---
 
-# VC dimension
-
 ##  Abstract   
 To understand the VC dimension explicitly, I would firstly introduce some basic concepts: dichotomy, growth function, shattering and break point. And then I would talk about the upper bound of growth fuction, the VC ineaulity, and its function in application.   
 
@@ -39,28 +37,28 @@ N=2   MH(N) =4
 
 ![](http://m.qpic.cn/psb?/V12764hq3b2u4E/FqiT4*NKBDrilTP9nUB0fDIZBDqlIHcqZJ4MhWTfrVQ!/b/dFQBAAAAAAAA&bo=zAA3AAAAAAADB9k!&rf=viewer_4)
 
-N=3    dH(3) = 8 = 2^3^ 
+N=3    dH(3) = 8 = 2^3
 
 ![](http://m.qpic.cn/psb?/V12764hq3b2u4E/9gqUm84R7p*1pqP*tqLuNRyvN**CCkaAQ1GVK4TkAH4!/b/dL4AAAAAAAAA&bo=uABTAAAAAAADB8k!&rf=viewer_4)
 ![](http://m.qpic.cn/psb?/V12764hq3b2u4E/UonDTrpbhFfmoKYGai3wXl372IgM0EDd.K2ewyTQSws!/b/dLYAAAAAAAAA&bo=owBMAAAAAAADB80!&rf=viewer_4)
 
-N=4     MH(N) =14 < 2^N^  
+N=4     MH(N) =14 < 2^N 
 
 ![](http://m.qpic.cn/psb?/V12764hq3b2u4E/EtKQ5xfmoh1*AjQLcTmNjJL2WhkQ9w*.6jN0H.LCi*o!/b/dFIBAAAAAAAA&bo=ZwFXAAAAAAADBxM!&rf=viewer_4)
 
-N>=5        MH(N) < 2^N^
+N>=5        MH(N) < 2^N
 
 **Convex Set**
 
 ![](http://m.qpic.cn/psb?/V12764hq3b2u4E/1wVeJEd.URwGsd0bJBk0eWRQInq7V5ZBp8hk8KOn*TA!/b/dMAAAAAAAAAA&bo=owBTAAAAAAADB9I!&rf=viewer_4)  The left one is convex sets, bur the right one is not
 
-![](http://m.qpic.cn/psb?/V12764hq3b2u4E/7X6YvoICbdlNpnd72KW8DdwH5mx*YtzQhKi009HinXs!/b/dD4BAAAAAAAA&bo=bwBaAAAAAAADBxc!&rf=viewer_4)  MH(N) = 2N
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/7X6YvoICbdlNpnd72KW8DdwH5mx*YtzQhKi009HinXs!/b/dD4BAAAAAAAA&bo=bwBaAAAAAAADBxc!&rf=viewer_4)  MH(N) = 2^N
 
 **Break points**
 The minimum number of N whose hypothesis set cannot be shattered by any distribution type. So for positive rays MH(2)=3 Break point is 2; For positive intervals, MH(3)=7 break point is 3; For convex set, no break point; For 2D perceptron, MH(4)=14 break point is 4. 
 
 The Vapnik-hervonenkis (VC) dimension is a measure of the capacity (complexity, expressive power, richness, or flexibility) of a space of functions that can be learned by a statistical classification algorithm. It is defined as the cardinality of the largest set of points that the algorithm can shatter. It was originally defined by Vladimir Vapnik and Alexey Chervonenkis.
-Briefly, So, we could understand the meaning of VC dimension. dvc (H) is the largest value of N for which MH(N) = 2^N^    dvc = k ? 1
+Briefly, So, we could understand the meaning of VC dimension. dvc (H) is the largest value of N for which MH(N) = 2^N    dvc = k - 1
 
 ## Infinite to finite
 
