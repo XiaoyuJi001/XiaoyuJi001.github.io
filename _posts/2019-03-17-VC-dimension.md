@@ -58,11 +58,11 @@ N>=5        MH(N) < 2^N
 The minimum number of N whose hypothesis set cannot be shattered by any distribution type. So for positive rays MH(2)=3 Break point is 2; For positive intervals, MH(3)=7 break point is 3; For convex set, no break point; For 2D perceptron, MH(4)=14 break point is 4. 
 
 The Vapnik-hervonenkis (VC) dimension is a measure of the capacity (complexity, expressive power, richness, or flexibility) of a space of functions that can be learned by a statistical classification algorithm. It is defined as the cardinality of the largest set of points that the algorithm can shatter. It was originally defined by Vladimir Vapnik and Alexey Chervonenkis.
-Briefly, So, we could understand the meaning of VC dimension. dvc (H) is the largest value of N for which MH(N) = 2^N    dvc = k - 1
+Briefly, So, we could understand the meaning of VC dimension. dvc (H) is the largest value of N for which MH(N) = 2^N    dvc = k-1
 
 ## Infinite to finite
 
-According to the definition, break point k restrict the rang of MH(N). Then, given N and k, it can be proved that the upper bound of the maximum value of MH(N) is polynomial. According to the Hoeffding inequality, it is feasible to use mH(N) instead of M to obtain machine learning.
+According to the definition, break point k restrict the range of MH(N). Then, given N and k, it can be proved that the upper bound of the maximum value of MH(N) is polynomial. According to the Hoeffding inequality, it is feasible to use mH(N) instead of M to obtain machine learning.
 
 ![](http://m.qpic.cn/psb?/V12764hq3b2u4E/YqG1oSvATzAAJVJNCC1P9HROTOy28yP9h.7OApphmfc!/b/dL4AAAAAAAAA&bo=LAJeAAAAAAADB1I!&rf=viewer_4)
 
