@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Regression"
-date: 2019-0---
+date: 2019-03-24
 title: "Regression"
 output: github_document
 ---
@@ -195,35 +195,37 @@ Analyzing the fitting statistics of the model helps to determine whether our cha
 
 ### piecewise
 
-In this part, I will analysis the relationship between age and the costs.
+From above analysis, we guess there be strong link between age and charges. In this part, I will analysis the relationship between age and the costs by piecewise.
 
 ``` r
 charges=insurance$charges
 age=insurance$age
-fit = lm( charges~ 0 + cut(age,4)) 
+fit = lm( charges~ 0 + cut(age,6)) 
 summary(fit)
 ```
 
     ## 
     ## Call:
-    ## lm(formula = charges ~ 0 + cut(age, 4))
+    ## lm(formula = charges ~ 0 + cut(age, 6))
     ## 
     ## Residuals:
     ##    Min     1Q Median     3Q    Max 
-    ##  -9666  -6935  -5655   4949  47010 
+    ##  -9685  -6876  -5612   5013  48303 
     ## 
     ## Coefficients:
-    ##                      Estimate Std. Error t value Pr(>|t|)    
-    ## cut(age, 4)(18,29.5]   9182.5      567.1   16.19   <2e-16 ***
-    ## cut(age, 4)(29.5,41]  11560.7      656.7   17.60   <2e-16 ***
-    ## cut(age, 4)(41,52.5]  15632.4      655.6   23.84   <2e-16 ***
-    ## cut(age, 4)(52.5,64]  18302.1      670.9   27.28   <2e-16 ***
+    ##                        Estimate Std. Error t value Pr(>|t|)    
+    ## cut(age, 6)(18,25.7]     9087.0      661.8   13.73   <2e-16 ***
+    ## cut(age, 6)(25.7,33.3]  10267.6      785.9   13.06   <2e-16 ***
+    ## cut(age, 6)(33.3,41]    11784.2      808.6   14.57   <2e-16 ***
+    ## cut(age, 6)(41,48.7]    15651.7      824.9   18.98   <2e-16 ***
+    ## cut(age, 6)(48.7,56.3]  16048.0      775.3   20.70   <2e-16 ***
+    ## cut(age, 6)(56.3,64]    19312.0      839.9   22.99   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 11580 on 1334 degrees of freedom
-    ## Multiple R-squared:  0.5856, Adjusted R-squared:  0.5843 
-    ## F-statistic: 471.2 on 4 and 1334 DF,  p-value: < 2.2e-16
+    ## Residual standard error: 11580 on 1332 degrees of freedom
+    ## Multiple R-squared:  0.5864, Adjusted R-squared:  0.5846 
+    ## F-statistic: 314.8 on 6 and 1332 DF,  p-value: < 2.2e-16
 
 ``` r
 #plotting
@@ -237,4 +239,95 @@ matlines(age.grid, se.bands, lwd=1, col="darkblue", lty=3)
 title("constant piecewise")
 ```
 
-![](regression_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](regression_files/figure-markdown_github/unnamed-chunk-7-1.png) \#\#\# Cubic Spline
+
+``` r
+library(splines)
+fit = lm(charges ~ bs(age,knots=c(18,26,34,42,48,56,64),degree=3)) # knots at age 25,40,60
+summary(fit)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = charges ~ bs(age, knots = c(18, 26, 34, 42, 48, 
+    ##     56, 64), degree = 3))
+    ## 
+    ## Residuals:
+    ##    Min     1Q Median     3Q    Max 
+    ##  -8473  -6708  -5845   5228  47770 
+    ## 
+    ## Coefficients: (2 not defined because of singularities)
+    ##                                                              Estimate
+    ## (Intercept)                                                     22296
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)1    -14638
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)2    -11852
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)3    -13363
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)4    -10298
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)5     -9629
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)6     -5133
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)7     -7759
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)8     -1852
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)9        NA
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)10       NA
+    ##                                                              Std. Error
+    ## (Intercept)                                                        2096
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)1        2428
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)2        3127
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)3        3162
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)4        3017
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)5        2699
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)6        3054
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)7        2948
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)8        4086
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)9          NA
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)10         NA
+    ##                                                              t value
+    ## (Intercept)                                                   10.635
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)1   -6.030
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)2   -3.790
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)3   -4.226
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)4   -3.413
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)5   -3.568
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)6   -1.681
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)7   -2.632
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)8   -0.453
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)9       NA
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)10      NA
+    ##                                                              Pr(>|t|)    
+    ## (Intercept)                                                   < 2e-16 ***
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)1  2.12e-09 ***
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)2  0.000157 ***
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)3  2.54e-05 ***
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)4  0.000662 ***
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)5  0.000373 ***
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)6  0.093011 .  
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)7  0.008574 ** 
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)8  0.650472    
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)9        NA    
+    ## bs(age, knots = c(18, 26, 34, 42, 48, 56, 64), degree = 3)10       NA    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 11570 on 1329 degrees of freedom
+    ## Multiple R-squared:  0.09298,    Adjusted R-squared:  0.08752 
+    ## F-statistic: 17.03 on 8 and 1329 DF,  p-value: < 2.2e-16
+
+``` r
+## plotting
+preds = predict(fit, newdata=list(age=age.grid), se=TRUE) 
+```
+
+    ## Warning in predict.lm(fit, newdata = list(age = age.grid), se = TRUE):
+    ## prediction from a rank-deficient fit may be misleading
+
+``` r
+se.bands = cbind(preds$fit + 2*preds$se.fit, preds$fit - 2*preds$se.fit)
+plot(age, charges, xlim=agelims, cex=.5, col="darkgrey") 
+lines(age.grid, preds$fit, lwd=2, col="darkblue") 
+matlines(age.grid, se.bands, lwd=1, col="darkblue", lty=3)
+abline(v=c(18,26,34,42,48,56,64),lty=3) 
+legend("topright", col=c("darkblue"), lwd=2, legend=c("Cubic Spline"), bty="n")
+title("Cubic Spline")
+```
+
+![](regression_files/figure-markdown_github/unnamed-chunk-8-1.png)
