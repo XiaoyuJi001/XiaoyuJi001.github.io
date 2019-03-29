@@ -53,7 +53,7 @@ summary(insurance$charges)
 
 Because the average is much larger than the median, it shows that the distribution of insurance premiums is right-sided, which can be confirmed by histogram.
 
-![](regression_files/figure-markdown_github/pressure-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4)
 
 Before using regression models to fit data, it is necessary to determine how independent variables are related to dependent variables and independent variables. The correlation matrix provides a quick overview of these relationships. Given a set of variables, it can provide a correlation coefficient for the relationship between each pair of variables.
 
@@ -75,7 +75,8 @@ Another method is to create a scatter plot matrix, which simply arranges a set o
 pairs(insurance[c("age","bmi","children","charges")])
 ```
 
-![](regression_files/figure-markdown_github/unnamed-chunk-3-1.png) Like the correlation coefficient matrix, the scatter plot of the intersection points of each row and column shows the correlation between the two variables of the row and column. Since the X and Y axes above and below the diagonal are commutative, the diagonal graphs above and below are symmetric.
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4)
+Like the correlation coefficient matrix, the scatter plot of the intersection points of each row and column shows the correlation between the two variables of the row and column. Since the X and Y axes above and below the diagonal are commutative, the diagonal graphs above and below are symmetric.
 
 Despite some seemingly random dots, some seem to be showing a certain trend. The relationship between age and charges presents several relative lines, while scatter plots of BMI and charges constitute two different groups.
 
@@ -239,7 +240,7 @@ matlines(age.grid, se.bands, lwd=1, col="darkblue", lty=3)
 title("constant piecewise")
 ```
 
-![](regression_files/figure-markdown_github/unnamed-chunk-7-1.png) \#\#\# Cubic Spline
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4) \#\#\# Cubic Spline
 
 ``` r
 library(splines)
@@ -330,4 +331,4 @@ legend("topright", col=c("darkblue"), lwd=2, legend=c("Cubic Spline"), bty="n")
 title("Cubic Spline")
 ```
 
-![](regression_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4)
