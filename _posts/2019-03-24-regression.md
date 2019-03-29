@@ -75,7 +75,7 @@ Another method is to create a scatter plot matrix, which simply arranges a set o
 pairs(insurance[c("age","bmi","children","charges")])
 ```
 
-![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Kl6waHj7rzIC.qxC*4eKPbQOaTKZVJ76ZB2HsGHoni8!/b/dEgBAAAAAAAA&bo=dQLaAXUC2gEDGTw!&rf=viewer_4)
 Like the correlation coefficient matrix, the scatter plot of the intersection points of each row and column shows the correlation between the two variables of the row and column. Since the X and Y axes above and below the diagonal are commutative, the diagonal graphs above and below are symmetric.
 
 Despite some seemingly random dots, some seem to be showing a certain trend. The relationship between age and charges presents several relative lines, while scatter plots of BMI and charges constitute two different groups.
@@ -240,7 +240,7 @@ matlines(age.grid, se.bands, lwd=1, col="darkblue", lty=3)
 title("constant piecewise")
 ```
 
-![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4) \#\#\# Cubic Spline
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/FwIpx.jZE28KkMtI7Ghaddq8F5upKY63V85g3ntgpd4!/b/dL8AAAAAAAAA&bo=kwLTAZMC0wEDGTw!&rf=viewer_4) \#\#\# Cubic Spline
 
 ``` r
 library(splines)
@@ -331,4 +331,4 @@ legend("topright", col=c("darkblue"), lwd=2, legend=c("Cubic Spline"), bty="n")
 title("Cubic Spline")
 ```
 
-![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Rv3yqlcBt8yLrnbg16GNwlqOj9Tl*sgUIKLM*C**rKc!/b/dLkAAAAAAAAA&bo=sALBAbACwQEDGTw!&rf=viewer_4)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/aQl1xI8nrrp2TjgldebWWYzGtE9Qg4uYvDugNxVKE6c!/b/dLYAAAAAAAAA&bo=lwLdAZcC3QEDGTw!&rf=viewer_4)
