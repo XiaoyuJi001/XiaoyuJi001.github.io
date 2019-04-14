@@ -19,18 +19,15 @@ I draw a box graph and bar graphs to show Median, Tail Length, Abnormal Value an
 ``` r
 library("gmodels")
 ```
-
-    ## Warning: package 'gmodels' was built under R version 3.5.3
-
 ``` r
 library("MASS")
 rm(list = ls()) 
 heart <- read.csv("heart.csv")
 attach(heart)
-boxplot(thalach~target,ylab="maxrate",xlab="target",cex.lab=1.5)  ##箱型图
+boxplot(thalach~target,ylab="maxrate",xlab="target",cex.lab=1.5)  
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-1-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/hC.cmijMASdFVGC*Q*2qL6FEdG**9RnLxTp7WZaj31A!/b/dL8AAAAAAAAA&bo=SAJlAQAAAAADBww!&rf=viewer_4)
 
 ``` r
 thalach_0 <- thalach[target==0]/202
@@ -43,7 +40,7 @@ legend("topleft", legend=c("normal fit","nonparametric fit"),
        lty=1:2,col=c("burlywood","brown"),lwd=2,bty="n") 
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-1-2.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/FQo*6YKAzVLjArq8PRkkCB*GWh6JKFzksgczag5uYeY!/b/dDEBAAAAAAAA&bo=TAJcAQAAAAADBzE!&rf=viewer_4)
 
 ``` r
 hist(thalach_1,prob=TRUE,col="cornflowerblue",
@@ -54,7 +51,7 @@ legend("topleft", legend=c("normal fit","nonparametric fit"),
        lty=1:2,col=c("burlywood","brown"),lwd=2,bty="n")
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-1-3.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/o.vUp7SzcKmNsRDqmZ9NyoTpn*Y0pZU1N9akHKPkMiE!/b/dDABAAAAAAAA&bo=SQJcAQAAAAADFyQ!&rf=viewer_4)
 
 We also draw the linear regression box gragh and show linear regression curve in bar graphs. Bebause as shown above, the distribution of maxrate and target may do not fit the dataset well, I also try non-parametric fit. Wider non-linear variations can be obtained without presetting the specific form and error distribution of the model. Non-parametric fitting can be widely applied to different types of collections because it does not need to preset the specific form and error distribution of the model, so it can obtain a wide range of non-linear variations. At the same time, when extracting samples to estimate the collections, it does not need to depend on the distribution form of the collections to which the samples belong, so it can be widely applied to different types of collections. This can reduce the deviation, improve the prediction accuracy and understand the samples. The dynamic structure of sequences is extremely useful.
 
@@ -132,7 +129,7 @@ plot(ls.p ~ as.factor(target),
      col=c("cornflowerblue","brown"),main="Linear Regression")
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-2-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/*CT*bawKflZ6ZyTJCUmZ.I.4XqFWmC8aFxUchB33v1w!/b/dFMBAAAAAAAA&bo=RgJjAQAAAAADBwQ!&rf=viewer_4)
 
 And then, we find that when max rate &gt; 0.72, the probability of having heart disease is 0.5.
 
@@ -151,7 +148,7 @@ legend("bottomright", legend=c("data","linear prediction","linear fit"),
        lty=c(0,0,1),pch=c(1,1,NA),col=c("cornflowerblue","yellow","brown"),bty="n") 
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/TopbwEqGaMedaRH7aQrgmsvo1NNG*SYEQ70fhj0FH7o!/b/dFIBAAAAAAAA&bo=QgJYAQAAAAADBzs!&rf=viewer_4)
 
 ``` r
 ## Logistic Regression #
@@ -228,7 +225,7 @@ plot(logit.p ~ as.factor(target),
      col=c("cornflowerblue","brown"),main="Logistic Regression")
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/OSIfZfJ*CDrqYjkwuNAIQ84RHgMYahKyyBK89SJKgxA!/b/dDIBAAAAAAAA&bo=QwJWAQAAAAADBzQ!&rf=viewer_4)
 
 ``` r
 # prediction on income = seq(0,1,.01)
@@ -248,7 +245,7 @@ legend("bottomright", legend=c("data","logistic prediction","logistic fit"),
        lty=c(0,0,1),pch=c(1,1,NA),col=c("cornflowerblue","yellow","brown"),bty="n") 
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-4-2.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/DhNbdFmM1KtEZFLJ.lojeYJV.xR8xHIMW6OQnQjiH6w!/b/dLwAAAAAAAAA&bo=RwJNAQAAAAADFzs!&rf=viewer_4)
 
 ``` r
 ## Comparison
@@ -259,7 +256,7 @@ legend("bottomright", legend=c("linear fit","logistic fit"),
        lty=1,lwd=2,col=c("burlywood","brown"),bty="n") 
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-4-3.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/6b.w1rmi.i*q4WmDZsdWsb9bX4LPQGQXc4ZW6WXRZ9c!/b/dDQBAAAAAAAA&bo=QwJMAQAAAAADFz4!&rf=viewer_4)
 
 Finally, I do the logistic regression and prohit fit. As shown in the gragh below, the two curves are similar.
 
@@ -305,7 +302,7 @@ legend("bottomright", legend=c("logistic fit","probit fit"),
        lty=1,lwd=2,col=c("brown","burlywood"),bty="n") 
 ```
 
-![](classification_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](http://m.qpic.cn/psb?/V12764hq3b2u4E/Z6hJw2GYitNlhzZhEfwIYs.N.UhHMNUv.JKsNO3a4EA!/b/dL4AAAAAAAAA&bo=PgJJAQAAAAADF0Y!&rf=viewer_4)
 
 ``` r
 detach(heart)
