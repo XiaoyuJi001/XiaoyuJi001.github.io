@@ -1,3 +1,4 @@
+
 desicion tree
 ================
 
@@ -25,7 +26,7 @@ Note:
 
 sibsp: The dataset defines family relations in this way:
 
-Sibling = brother, sister, stepbrother, stepsister; Spouse = husband, wife (mistresses and fianc茅s were ignored) ;
+Sibling = brother, sister, stepbrother, stepsister; Spouse = husband, wife (mistresses and fiances were ignored) ;
 
 parch: The dataset defines family relations in this way;
 
@@ -492,8 +493,8 @@ fit.tree$cptable
     ##      CP nsplit rel error xerror  xstd
     ## 1 0.444      0      1.00   1.00 0.042
     ## 2 0.031      1      0.56   0.56 0.036
-    ## 3 0.015      5      0.43   0.51 0.035
-    ## 4 0.010      6      0.42   0.49 0.034
+    ## 3 0.015      5      0.43   0.49 0.034
+    ## 4 0.010      6      0.42   0.51 0.035
 
 ``` r
 prune.tree<- prune(fit.tree,cp=0.015) 
@@ -564,23 +565,25 @@ fit.ranf
     ##                      Number of trees: 500
     ## No. of variables tried at each split: 2
     ## 
-    ##         OOB estimate of  error rate: 17%
+    ##         OOB estimate of  error rate: 18%
     ## Confusion matrix:
     ##     0   1 class.error
-    ## 0 502  47       0.086
-    ## 1 102 240       0.298
+    ## 0 499  50       0.091
+    ## 1 106 236       0.310
 
 ``` r
 importance(fit.ranf,type=2)
 ```
 
     ##          MeanDecreaseGini
-    ## Pclass                 33
-    ## Sex                   102
-    ## Age                    54
+    ## Pclass                 34
+    ## Sex                   101
+    ## Age                    55
     ## SibSp                  17
     ## Parch                  13
-    ## Fare                   66
+    ## Fare                   64
     ## Embarked               12
 
 The decision tree is constructed by using combination method, adding randomness, and based on different attributes and sample selection. Five hundred base classifiers are set up to vote in combination. Random forests reduce the correlation between decision trees by random and combination, and improve the flourishing error of combinatorial classifiers. The importance of the attributes extracted from the random forest ranges from high to low in order of sex, fare, age, number of siblings accompanied by passengers and number of parents/brothers accompanied by passengers.
+
+Writing in Rmarkdown published on Github:
