@@ -28,6 +28,106 @@ data processing
 
 I use corrplot package to draw a graph showing the correlation coefficients between each two variables. As shown in the graph, cp,thalach, and slope have relative high positive coefficients with target and oldpeak ca and exang have relative high negative coefficients.
 
+``` r
+library(caret)
+```
+
+    ## Warning: package 'caret' was built under R version 3.5.3
+
+    ## Loading required package: lattice
+
+    ## Loading required package: ggplot2
+
+``` r
+library(glmnet)
+```
+
+    ## Warning: package 'glmnet' was built under R version 3.5.3
+
+    ## Loading required package: Matrix
+
+    ## Loading required package: foreach
+
+    ## Warning: package 'foreach' was built under R version 3.5.3
+
+    ## Loaded glmnet 2.0-16
+
+``` r
+library(corrplot)
+```
+
+    ## Warning: package 'corrplot' was built under R version 3.5.3
+
+    ## corrplot 0.84 loaded
+
+``` r
+library(rpart)
+```
+
+    ## Warning: package 'rpart' was built under R version 3.5.3
+
+``` r
+library(rpart.plot)
+```
+
+    ## Warning: package 'rpart.plot' was built under R version 3.5.3
+
+``` r
+library(randomForest)
+```
+
+    ## Warning: package 'randomForest' was built under R version 3.5.3
+
+    ## randomForest 4.6-14
+
+    ## Type rfNews() to see new features/changes/bug fixes.
+
+    ## 
+    ## Attaching package: 'randomForest'
+
+    ## The following object is masked from 'package:ggplot2':
+    ## 
+    ##     margin
+
+``` r
+library(gbm)
+```
+
+    ## Warning: package 'gbm' was built under R version 3.5.3
+
+    ## Loaded gbm 2.1.5
+
+``` r
+library(e1071)
+```
+
+    ## Warning: package 'e1071' was built under R version 3.5.3
+
+``` r
+library(nnet)
+library(neuralnet)
+```
+
+    ## Warning: package 'neuralnet' was built under R version 3.5.3
+
+``` r
+library(NeuralNetTools)
+```
+
+    ## Warning: package 'NeuralNetTools' was built under R version 3.5.3
+
+``` r
+library(gridExtra)
+```
+
+    ## Warning: package 'gridExtra' was built under R version 3.5.3
+
+    ## 
+    ## Attaching package: 'gridExtra'
+
+    ## The following object is masked from 'package:randomForest':
+    ## 
+    ##     combine
 
 ``` r
 rm(list=ls())
@@ -35,7 +135,7 @@ data = read.csv("heart.csv")
 summary(data)
 ```
 
-    ##      age           sex               cp           trestbps    
+    ##      锘縜ge           sex               cp           trestbps    
     ##  Min.   :29.00   Min.   :0.0000   Min.   :0.000   Min.   : 94.0  
     ##  1st Qu.:47.50   1st Qu.:0.0000   1st Qu.:0.000   1st Qu.:120.0  
     ##  Median :55.00   Median :1.0000   Median :1.000   Median :130.0  
@@ -104,7 +204,7 @@ summary(fit)
     ## Coefficients:
     ##             Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept) -0.09559    0.26321  -0.363 0.716483    
-    ## age       0.16370    0.28991   0.565 0.572305    
+    ## 锘縜ge       0.16370    0.28991   0.565 0.572305    
     ## sex         -0.84420    0.28170  -2.997 0.002729 ** 
     ## cp           1.02794    0.29998   3.427 0.000611 ***
     ## trestbps    -0.19631    0.28889  -0.680 0.496809    
